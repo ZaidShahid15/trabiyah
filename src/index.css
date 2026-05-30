@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-pearl: #FAF8F5;
+  --color-noir: #1A1A1A;
+  --color-gold: #B8976A;
+  --color-sand: #E8E0D4;
+  --color-charcoal: #3D3D3D;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Noto Sans Arabic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF8F5;
+  color: #1A1A1A;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8E0D4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8976A;
+}
+
+/* Custom premium smooth transition presets */
+.transition-luxury {
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Matte digital paper display glow filter to simulate genuine backlit e-paper */
+.paper-glow {
+  box-shadow: 0 0 40px rgba(184, 151, 106, 0.04), inset 0 0 15px rgba(255, 255, 255, 0.6);
+}
+

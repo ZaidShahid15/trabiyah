@@ -1,0 +1,6 @@
+{
+  "name": "Tarbiyah",
+  "description": "Premium Islamic home display device landing page by ILHAM Inc.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
