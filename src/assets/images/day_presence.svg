@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Noto+Sans+Arabic:wght@400;500;600;700&amp;display=swap');
+      .serif-quote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+      .sans-ui { font-family: 'Inter', system-ui, sans-serif; }
+      .arabic { font-family: 'Noto Sans Arabic', sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    </style>
+    <filter id="soft-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#3A3225" flood-opacity="0.06" />
+    </filter>
+    <filter id="neumorph-inset" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.04" />
+    </filter>
+  </defs>
+
+  <!-- Solid Soft Off-White Matte Sand Background -->
+  <rect width="800" height="600" rx="0" fill="#FAF8F5" />
+  
+  <!-- Neumorphic Soft Card Background Texture Gradients -->
+  <circle cx="150" cy="150" r="300" fill="#FCFAF8" opacity="0.9" />
+  <circle cx="700" cy="450" r="350" fill="#F4EFEA" opacity="0.6" />
+
+  <!-- Noise Texture Simulation (subtle diagonal lines) -->
+  <pattern id="noise-light" width="4" height="4" patternUnits="userSpaceOnUse">
+    <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" stroke="#1A1A1A" stroke-width="0.3" opacity="0.03" />
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#noise-light)" pointer-events="none" />
+
+  <!-- ================= LEFT AREA ================= -->
+
+  <!-- Top Left Verse Panel -->
+  <g transform="translate(45, 45)">
+    <!-- Soft Neumorphic Raised/Inset White Card -->
+    <rect width="360" height="115" rx="18" fill="#FFFFFF" stroke="#EAE4DB" stroke-width="1.2" filter="url(#soft-shadow)" />
+    <!-- Quran Arabic calligraphy text -->
+    <text x="330" y="32" class="arabic" font-size="15" fill="#B89766" font-weight="600" text-anchor="end">وَاذْكُرِ اسْمَ رَبِّكَ بُكْرَةً وَأَصِيلاً</text>
+    <!-- Translated verse in beautiful serif -->
+    <text x="30" y="60" class="serif-quote" font-size="15" fill="#2C2C2C" font-weight="400">
+      <tspan x="30" dy="0">"And mention the name of your Lord</tspan>
+      <tspan x="30" dy="22">morning and evening."</tspan>
+    </text>
+    <!-- Source Attribution -->
+    <text x="30" y="100" class="sans-ui" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="2">S U R A H  A L - I N S A N  7 6 : 2 5</text>
+  </g>
+
+  <!-- Large Active Prayer Indicator -->
+  <g transform="translate(45, 195)">
+    <text x="0" y="30" class="sans-ui" font-size="11.5" fill="#6B6B6B" font-weight="600" letter-spacing="3">CURRENT PRESENCE</text>
+    
+    <g transform="translate(0, 42)">
+      <!-- Prayer Name (Latin) -->
+      <text x="0" y="35" class="sans-ui" font-size="44" fill="#1A1A1A" font-weight="700" letter-spacing="-1">MAGHRIB</text>
+      <!-- Prayer Name (Arabic) -->
+      <text x="240" y="32" class="arabic" font-size="45" fill="#B89766" font-weight="600">المغرب</text>
+    </g>
+
+    <!-- Countdown Tag (In 12 mins) -->
+    <g transform="translate(0, 105)">
+      <rect width="210" height="28" rx="14" fill="#FFFFFF" stroke="#E3DACF" stroke-width="1" filter="url(#soft-shadow)" />
+      <!-- Small clock icon simplified -->
+      <circle cx="18" cy="14" r="5" fill="none" stroke="#B8976A" stroke-width="1.2" />
+      <path d="M18,10 v4 h3" fill="none" stroke="#B8976A" stroke-width="1.2" />
+      <text x="32" y="18" class="sans-ui" font-size="10.5" fill="#4D4D4D" font-weight="600">Commencing in 12 minutes</text>
+    </g>
+
+    <!-- Small Location Indicator -->
+    <g transform="translate(0, 150)">
+      <text x="0" y="12" class="sans-ui" font-size="11.5" fill="#6C6C6C" font-weight="600" letter-spacing="1">Staten Island, NY</text>
+    </g>
+  </g>
+
+  <!-- ================= RIGHT AREA ================= -->
+
+  <!-- Large Digital Clock Display -->
+  <g transform="translate(470, 75)">
+    <!-- Huge, ultra-elegant modern bright royal blue clock digits -->
+    <text x="285" y="180" class="sans-ui" font-size="160" fill="#1A73E8" font-weight="300" text-anchor="end" letter-spacing="-6">18:42</text>
+    
+    <!-- Location and Date banner directly beneath the clock -->
+    <g transform="translate(0, 215)">
+      <!-- Capsule Card raised -->
+      <rect x="35" y="0" width="250" height="34" rx="17" fill="#FFFFFF" stroke="#E3DACF" stroke-width="1" filter="url(#soft-shadow)" />
+      <!-- Calender Icon representation -->
+      <rect x="52" y="10" width="12" height="12" rx="2" fill="none" stroke="#B8976A" stroke-width="1.2" />
+      <line x1="56" y1="8" x2="56" y2="11" stroke="#B8976A" stroke-width="1.2" />
+      <line x1="60" y1="8" x2="60" y2="11" stroke="#B8976A" stroke-width="1.2" />
+      <!-- Date Text -->
+      <text x="73" y="21" class="sans-ui" font-size="11" fill="#2C2C2C" font-weight="600" letter-spacing="1">SATURDAY, 24 AUGUST</text>
+    </g>
+  </g>
+
+  <!-- ================= BOTTOM AREA ================= -->
+
+  <!-- Timeline of all five prayers (horizontal bar) -->
+  <g transform="translate(45, 450)">
+    <!-- Long clean rail -->
+    <line x1="0" y1="30" x2="710" y2="30" stroke="#E2DDD5" stroke-width="2.5" />
+    
+    <!-- Fajr (Past) -->
+    <g transform="translate(30, 0)">
+      <circle cx="0" cy="30" r="4.5" fill="#C5BEB3" />
+      <text x="0" y="15" class="sans-ui" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">Fajr</text>
+      <text x="0" y="48" class="mono" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">04:12</text>
+    </g>
+
+    <!-- Dhuhr (Past) -->
+    <g transform="translate(190, 0)">
+      <circle cx="0" cy="30" r="4.5" fill="#C5BEB3" />
+      <text x="0" y="15" class="sans-ui" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">Dhuhr</text>
+      <text x="0" y="48" class="mono" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">12:35</text>
+    </g>
+
+    <!-- Asr (Past) -->
+    <g transform="translate(350, 0)">
+      <circle cx="0" cy="30" r="4.5" fill="#C5BEB3" />
+      <text x="0" y="15" class="sans-ui" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">Asr</text>
+      <text x="0" y="48" class="mono" font-size="11" fill="#8C8C8C" font-weight="500" text-anchor="middle">16:10</text>
+    </g>
+
+    <!-- Maghrib (Active & Highlighted in Gold with Slider knob) -->
+    <g transform="translate(510, 0)">
+      <!-- Raised gold knob dial -->
+      <circle cx="0" cy="30" r="11" fill="#FFFFFF" stroke="#B89766" stroke-width="2.5" filter="url(#soft-shadow)" />
+      <circle cx="0" cy="30" r="5" fill="#B89766" />
+      <text x="0" y="12" class="sans-ui" font-size="12" fill="#B89766" font-weight="700" text-anchor="middle">Maghrib</text>
+      <text x="0" y="50" class="mono" font-size="11" fill="#B89766" font-weight="700" text-anchor="middle">18:54</text>
+    </g>
+
+    <!-- Isha (Upcoming) -->
+    <g transform="translate(670, 0)">
+      <circle cx="0" cy="30" r="4.5" fill="#E2DDD5" stroke="#C5BEB3" stroke-width="1.2" />
+      <text x="0" y="15" class="sans-ui" font-size="11" fill="#A89E8F" font-weight="500" text-anchor="middle">Isha</text>
+      <text x="0" y="48" class="mono" font-size="11" fill="#A89E8F" font-weight="500" text-anchor="middle">20:22</text>
+    </g>
+  </g>
+
+  <!-- Welcome / Family Custom Banner at bottom center -->
+  <g transform="translate(450, 535)">
+    <rect x="-240" y="0" width="480" height="30" rx="15" fill="#FFFFFF" stroke="#EADFCF" stroke-width="1.2" filter="url(#soft-shadow)" />
+    <text x="0" y="19" class="mono" font-size="10.5" fill="#1A1A1A" font-weight="600" tracking="1" text-anchor="middle">
+      WELCOME HOME, AL-FARSI FAMILY  •  PEACE BE UPON THIS HOUSE
+    </text>
+  </g>
+</svg>

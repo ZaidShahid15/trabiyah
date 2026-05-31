@@ -1,13 +1,2942 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>تربية — Tarbiyah | Premium Islamic Home Display Device</title>
+    <!-- Import Google Fonts: Inter + Noto Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+      /* --- PREMIUM DESIGN SYSTEM VARIABLES --- */
+      :root {
+        --pearl:    #FAF8F5;   /* Primary Background */
+        --noir:     #1A1A1A;   /* Primary Text, Buttons */
+        --gold:     #B8976A;   /* Accents (used sparingly) */
+        --sand:     #F0EBE3;   /* Alternate Section Background */
+        --charcoal: #3D3D3D;   /* Body Text */
+        --white:    #FFFFFF;   /* Cards Only */
+        
+        --8px: 8px;
+        --16px: 16px;
+        --20px: 20px;
+        --24px: 24px;
+        --32px: 32px;
+        --40px: 40px;
+        --48px: 48px;
+        --64px: 64px;
+        --80px: 80px;
+      }
+
+      /* Global Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--pearl);
+        color: var(--charcoal);
+        overflow-x: hidden;
+        line-height: 1.75;
+        font-size: 17px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 220ms ease;
+      }
+
+      button {
+        font-family: inherit;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: all 220ms ease;
+      }
+
+      /* --- TYPOGRAPHY RULES --- */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', sans-serif;
+        color: var(--noir);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.035em;
+        margin-bottom: var(--24px);
+      }
+
+      h1 {
+        font-size: 72px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        background: linear-gradient(180deg, #111111 0%, #444444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1.15;
+        background: linear-gradient(135deg, #111111 0%, #3d3d3d 55%, #1c1c1c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h3 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      /* Arabic typography standards */
+      .arabic-font {
+        font-family: 'Noto Sans Arabic', sans-serif;
+        color: var(--gold);
+        font-size: 1.15em;
+        font-weight: 500;
+      }
+
+      /* Section Badges style */
+      .section-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: #8C6F48;
+        text-transform: uppercase;
+        margin-bottom: var(--20px);
+        border-radius: 980px;
+        background: rgba(184, 151, 106, 0.08);
+        border: 1px solid rgba(184, 151, 106, 0.18);
+        padding: 5px 16px;
+        backdrop-filter: blur(8px);
+        transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Dividers */
+      hr.premium-divider {
+        height: 1px;
+        background: rgba(184, 151, 106, 0.15);
+        border: none;
+        margin: 0;
+      }
+
+      /* --- BUTTONS --- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 980px;
+        padding: 15px 32px;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .btn-primary {
+        border-radius: 980px;
+        background: linear-gradient(180deg, #2D2D2D 0%, #151515 100%);
+        color: #FAF8F5;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 2px 4px rgba(0,0,0,0.06),
+          0 12px 28px -6px rgba(0,0,0,0.18),
+          inset 0 1.5px 0 rgba(255,255,255,0.1),
+          inset 0 -1.5px 0 rgba(0,0,0,0.25);
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Animated glass glint transition on button hover */
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+        transition: left 500ms ease;
+      }
+
+      .btn-primary:hover::after {
+        left: 100%;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(180deg, #E2BC8C 0%, #B8976A 100%);
+        border-color: rgba(184, 151, 106, 0.80);
+        box-shadow:
+          0 4px 12px rgba(184, 151, 106, 0.15),
+          0 24px 48px -6px rgba(184, 151, 106, 0.3),
+          inset 0 1.5px 0 rgba(255, 255, 255, 0.25);
+        transform: translateY(-2.5px) scale(1.02);
+      }
+
+      .btn-secondary {
+        border-radius: 980px;
+        background: #FFFFFF;
+        color: var(--noir);
+        border: 1px solid rgba(184, 151, 106, 0.18);
+        box-shadow:
+          0 2px 4px rgba(0,0,0,0.02),
+          0 8px 20px -4px rgba(0,0,0,0.08),
+          inset 0 1px 0 #FFFFFF;
+        padding: 15px 32px;
+        font-weight: 500;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .btn-secondary:hover {
+        background: #FAFAF7;
+        color: var(--noir);
+        border-color: rgba(184, 151, 106, 0.35);
+        box-shadow:
+          0 4px 8px rgba(0,0,0,0.02),
+          0 12px 24px -4px rgba(0,0,0,0.12),
+          inset 0 1px 0 #FFFFFF;
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      /* --- CARDS --- */
+      .premium-card {
+        background: linear-gradient(135deg, #FFFFFF 0%, #FAFAF7 100%);
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(184, 151, 106, 0.08);
+        box-shadow: 
+          0 4px 6px -1px rgba(184, 151, 106, 0.02),
+          0 12px 28px -4px rgba(184, 151, 106, 0.08),
+          0 24px 44px -8px rgba(0, 0, 0, 0.02),
+          inset 0 1.5px 0 #FFFFFF;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Dynamic satin-glare sweep across the card on hover */
+      .premium-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          115deg,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(255, 255, 255, 0.35) 45%,
+          rgba(255, 255, 255, 0.50) 48%,
+          rgba(255, 255, 255, 0.35) 51%,
+          rgba(255, 255, 255, 0) 65%
+        );
+        transform: rotate(-12deg);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease;
+      }
+
+      .premium-card:hover::before {
+        transform: translate(50%, 0) rotate(-12deg);
+        opacity: 1;
+      }
+
+      .premium-card:hover {
+        box-shadow:
+          0 6px 12px -2px rgba(184, 151, 106, 0.04),
+          0 20px 48px -10px rgba(184, 151, 106, 0.14),
+          0 32px 72px -12px rgba(0, 0, 0, 0.04),
+          inset 0 2px 0 #FFFFFF;
+        transform: translateY(-6px) scale(1.01);
+        border-color: rgba(184, 151, 106, 0.20);
+      }
+
+      /* Cards on Sand Background (#F0EBE3) */
+      .section-padding-sand .premium-card {
+        border-color: rgba(184, 151, 106, 0.12);
+        box-shadow:
+          0 4px 6px -1px rgba(184, 151, 106, 0.03),
+          0 12px 28px -4px rgba(184, 151, 106, 0.10),
+          0 24px 44px -8px rgba(0, 0, 0, 0.02),
+          inset 0 1.5px 0 #FFFFFF;
+      }
+
+      .section-padding-sand .premium-card:hover {
+        box-shadow:
+          0 6px 12px -2px rgba(184, 151, 106, 0.05),
+          0 20px 48px -10px rgba(184, 151, 106, 0.16),
+          0 32px 72px -12px rgba(0, 0, 0, 0.04),
+          inset 0 2px 0 #FFFFFF;
+        transform: translateY(-6px) scale(1.01);
+        border-color: rgba(184, 151, 106, 0.25);
+      }
+
+      /* --- LAYOUT UTILITIES --- */
+      .section-padding-pearl {
+        padding: 140px 0;
+        background-color: var(--pearl);
+      }
+
+      .section-padding-sand {
+        padding: 140px 0;
+        background-color: var(--sand);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 var(--32px);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--80px);
+        align-items: center;
+      }
+
+      /* --- 1. NAVBAR --- */
+      #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        background: rgba(250, 248, 245, 0.72);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.005);
+        z-index: 1000;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      #navbar.scrolled {
+        background: rgba(250, 248, 245, 0.85);
+        box-shadow: 
+          0 8px 32px rgba(0,0,0,0.06),
+          0 1px 0 rgba(184,151,106,0.08);
+        border-bottom-color: rgba(184, 151, 106, 0.12);
+      }
+
+      .nav-container {
+        max-width: 100%;
+        height: 100%;
+        padding: 0 var(--48px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .nav-logo-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-logo-arabic {
+        font-family: 'Noto Sans Arabic', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .nav-logo-divider {
+        font-size: 13px;
+        color: #999999;
+        font-weight: 300;
+      }
+
+      .nav-logo-english {
+        font-size: 13px;
+        color: #999999;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+      }
+
+      .nav-links-menu {
+        display: flex;
+        align-items: center;
+        gap: var(--48px);
+      }
+
+      .nav-menu-item {
+        font-size: 13.5px;
+        color: rgba(26, 26, 26, 0.65);
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+        transition: color 250ms ease, opacity 250ms ease;
+      }
+
+      .nav-menu-item:hover {
+        color: var(--noir);
+        opacity: 0.9;
+      }
+
+      .nav-cta-area .btn-nav-preorder {
+        font-size: 14px;
+        padding: 10px 22px;
+      }
+
+      /* Mobile Nav Drawer & Hamburger button */
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        width: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 2001;
+      }
+
+      .hamburger-btn span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: var(--noir);
+        transition: transform 300ms ease, opacity 300ms ease;
+      }
+
+      /* Hamburger transform state */
+      .hamburger-btn.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger-btn.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--pearl);
+        z-index: 2000;
+        padding: 100px var(--32px) var(--32px) var(--32px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--32px);
+        transition: right 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .mobile-drawer.active {
+        right: 0;
+      }
+
+      .mobile-drawer-link {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--noir);
+        text-decoration: none;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(184, 151, 106, 0.10);
+      }
+
+      .mobile-drawer-link:hover {
+        color: var(--gold);
+      }
+
+      /* --- 2. HERO --- */
+      #hero {
+        min-height: 100vh;
+        background-color: var(--pearl);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        padding-top: 130px;
+        padding-bottom: 100px;
+        overflow: hidden;
+      }
+
+      .hero-welcome-badge {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 980px;
+        background: rgba(184,151,106,0.08);
+        box-shadow:
+          3px 3px 8px rgba(184,151,106,0.12),
+          -2px -2px 6px rgba(255,255,255,0.85);
+        border: none;
+        padding: 6px 18px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        margin-bottom: var(--32px);
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .hero-title {
+        margin-bottom: var(--24px);
+        max-width: 800px;
+      }
+
+      .hero-title .thin-line {
+        font-weight: 300;
+        display: block;
+      }
+
+      .hero-title .bold-line {
+        font-weight: 700;
+        display: block;
+      }
+
+      .hero-subheading {
+        font-size: 19px;
+        color: var(--charcoal);
+        max-width: 560px;
+        margin: 0 auto var(--48px) auto;
+        font-weight: 400;
+      }
+
+      .hero-ctas {
+        display: flex;
+        justify-content: center;
+        gap: var(--16px);
+        margin-bottom: var(--64px);
+      }
+
+      /* HERO DEVICE CSS ART */
+      .hero-device-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        perspective: 1000px;
+      }
+
+      .hero-wooden-frame {
+        width: 100%;
+        background: linear-gradient(135deg, #3d2516 0%, #63432b 50%, #2f1b0f 100%);
+        border-radius: 24px;
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+          0 4px 10px rgba(0,0,0,0.02),
+          0 24px 64px rgba(0,0,0,0.24),
+          0 50px 120px rgba(184,151,106,0.22),
+          inset 0 4px 8px rgba(255,255,255,0.25),
+          inset 0 -4px 8px rgba(0,0,0,0.45);
+        position: relative;
+        z-index: 3;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .hero-wooden-frame:hover {
+        transform: translateY(-8px) scale(1.015);
+        box-shadow:
+          0 8px 16px rgba(0,0,0,0.04),
+          0 36px 80px rgba(0,0,0,0.28),
+          0 60px 140px rgba(184,151,106,0.28),
+          inset 0 5px 10px rgba(255,255,255,0.32),
+          inset 0 -5px 10px rgba(0,0,0,0.50);
+      }
+
+      .hero-inner-screen {
+        background-color: #0D1B2A; /* Deep Navy E-Ink night display */
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        padding: var(--32px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 
+          inset 0 4px 12px rgba(0,0,0,0.40),
+          inset 0 1px 2px rgba(0,0,0,0.60);
+        position: relative;
+      }
+
+      .screen-verse-header {
+        max-width: 380px;
+      }
+
+      .verse-text {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+        line-height: var(--24px);
+      }
+
+      .verse-citation {
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.40);
+        margin-top: 4px;
+        display: block;
+      }
+
+      .screen-prayer-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: var(--16px);
+        margin-bottom: var(--16px);
+      }
+
+      .prayer-details-left {
+        display: flex;
+        flex-direction: column;
+        gap: var(--8px);
+      }
+
+      .prayer-current-label {
+        color: var(--white);
+        font-size: 2.8rem;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        line-height: 1.1;
+      }
+
+      .prayer-countdown-tag {
+        display: inline-flex;
+        background: rgba(255,255,255,0.08);
+        border-radius: 980px;
+        box-shadow:
+          2px 2px 6px rgba(0,0,0,0.30),
+          inset 0 1px 0 rgba(255,255,255,0.08);
+        border: none;
+        padding: 6px 14px;
+        font-size: 11px;
+        color: var(--white);
+        width: fit-content;
+      }
+
+      .prayer-time-right {
+        color: #C4A87A; /* Gold tone clock UI */
+        font-size: 5.5rem;
+        font-weight: 200;
+        line-height: 1;
+      }
+
+      /* Travertine Shelf Base CSS Art */
+      .travertine-shelf {
+        height: 18px;
+        background: linear-gradient(180deg, #F3ECE2 0%, #DCD1C4 100%);
+        border-bottom: 5px solid #BCB0A3;
+        border-radius: 6px;
+        width: 104%;
+        margin-left: -2%;
+        margin-top: -8px;
+        box-shadow: 
+          0 10px 30px rgba(0, 0, 0, 0.05),
+          0 25px 60px rgba(184, 151, 106, 0.12);
+        position: relative;
+        z-index: 2;
+      }
+
+      /* --- Hero Animation Timeline --- */
+      .anim-visible {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: heroFadeIn 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes heroFadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger-1 { animation-delay: 50ms; }
+      .stagger-2 { animation-delay: 170ms; }
+      .stagger-3 { animation-delay: 290ms; }
+      .stagger-4 { animation-delay: 410ms; }
+      .stagger-5 { animation-delay: 530ms; }
+
+      /* --- 3. WHAT IS TARBIYAH --- */
+      /* Two Columns 55/45 */
+      .what-is-layout {
+        display: grid;
+        grid-template-columns: 55fr 45fr;
+        gap: var(--80px);
+        align-items: center;
+      }
+
+      .what-is-left {
+        padding-right: 20px;
+      }
+
+      .what-is-body {
+        margin-bottom: var(--24px);
+        color: var(--charcoal);
+      }
+
+      .premium-quote {
+        border-left: 2px solid var(--gold);
+        padding-left: var(--24px);
+        margin: var(--32px) 0;
+        font-style: italic;
+        color: var(--charcoal);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .quote-attribution {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--gold);
+        margin-top: var(--12px);
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .highlights-card {
+        padding: var(--40px);
+      }
+
+      .highlights-header {
+        margin-bottom: var(--32px);
+      }
+
+      .highlights-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--noir);
+        margin-bottom: 4px;
+      }
+
+      .highlights-card-subtitle {
+        font-size: 13px;
+        color: #999999;
+        font-weight: 400;
+      }
+
+      .highlight-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--24px);
+        padding: var(--20px) 0;
+        border-bottom: 1px solid var(--sand);
+      }
+
+      .highlight-item > div:last-child {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .highlight-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .highlight-item:first-child {
+        padding-top: 0;
+      }
+
+      .highlight-icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(184,151,106,0.10);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.80),
+          inset 1px 1px 2px rgba(184,151,106,0.15),
+          2px 2px 6px rgba(184,151,106,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--gold);
+      }
+
+      .highlight-content-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--noir);
+        margin-bottom: 6px;
+      }
+
+      .highlight-content-desc {
+        font-size: 14px;
+        color: var(--charcoal);
+        line-height: 1.6;
+      }
+
+      /* --- 4. HOW IT WORKS --- */
+      .centered-header {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto var(--64px) auto;
+      }
+
+      .how-it-works-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--24px);
+      }
+
+      .how-it-works-card {
+        padding: var(--40px) var(--32px);
+        position: relative;
+        text-align: left;
+      }
+
+      .how-it-works-step {
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: var(--24px);
+      }
+
+      .how-it-works-dot {
+        position: absolute;
+        top: var(--40px);
+        right: var(--32px);
+        width: 8px;
+        height: 8px;
+        background-color: var(--gold);
+        border-radius: 50%;
+      }
+
+      .how-it-works-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--noir);
+        margin-bottom: var(--12px);
+      }
+
+      .how-it-works-card-desc {
+        font-size: 15px;
+        color: var(--charcoal);
+        line-height: 1.7;
+      }
+
+      /* --- 5. FEATURES --- */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--20px);
+      }
+
+      .feature-card {
+        padding: var(--32px);
+      }
+
+      .feature-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(184,151,106,0.10);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,0.80),
+          inset 1px 1px 2px rgba(184,151,106,0.15),
+          2px 2px 6px rgba(184,151,106,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        margin-bottom: var(--20px);
+      }
+
+      .feature-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--noir);
+        margin-bottom: var(--8px);
+      }
+
+      .feature-card-desc {
+        font-size: 14px;
+        color: var(--charcoal);
+        line-height: 1.65;
+      }
+
+      /* --- 6. DEVICE SCREENS SHOWCASE --- */
+      .showcase-flex {
+        display: flex;
+        justify-content: center;
+        gap: var(--48px);
+        flex-wrap: wrap;
+      }
+
+      .showcase-screen-container {
+        width: 100%;
+        max-width: 480px;
+        text-align: center;
+      }
+
+      .device-wooden-bezel {
+        background: linear-gradient(135deg, #3d2516 0%, #63432b 50%, #2f1b0f 100%);
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+          0 4px 10px rgba(0,0,0,0.02),
+          0 24px 64px rgba(0,0,0,0.22),
+          0 40px 100px rgba(184,151,106,0.22),
+          inset 0 3px 6px rgba(255,255,255,0.25),
+          inset 0 -3px 6px rgba(0,0,0,0.45);
+        margin-bottom: var(--20px);
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .device-wooden-bezel:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow:
+          0 8px 16px rgba(0,0,0,0.04),
+          0 36px 80px rgba(0,0,0,0.28),
+          0 50px 120px rgba(184,151,106,0.28),
+          inset 0 4px 8px rgba(255,255,255,0.32),
+          inset 0 -4px 8px rgba(0,0,0,0.50);
+      }
+
+      .device-screen-aspect {
+        border-radius: 12px;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 
+          inset 0 4px 12px rgba(0,0,0,0.40),
+          inset 0 1px 2px rgba(0,0,0,0.60);
+        position: relative;
+      }
+
+      /* High-fidelity Apple glass screen glare sweep overlay */
+      .device-screen-aspect::after,
+      .hero-inner-screen::after,
+      .customizable-screen-inner::after,
+      .phone-inner-screen::after {
+        content: "";
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        width: 140%;
+        height: 140%;
+        background: linear-gradient(
+          125deg,
+          rgba(255, 255, 255, 0.22) 0%,
+          rgba(255, 255, 255, 0.10) 22%,
+          rgba(255, 255, 255, 0) 24%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 99;
+        transform: rotate(-10deg);
+        transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease;
+      }
+
+      /* Dynamic reflection shifts on container hover */
+      .device-wooden-bezel:hover .device-screen-aspect::after,
+      .hero-wooden-frame:hover .hero-inner-screen::after,
+      .customizable-frame-outer:hover .customizable-screen-inner::after,
+      .phone-shell-art:hover .phone-inner-screen::after {
+        transform: translate(12%, 12%) rotate(-5deg);
+      }
+
+      /* LEFT SHOWCASE - NIGHT PRESENCE */
+      .bg-night {
+        background-color: #0D1B2A;
+        color: var(--white);
+      }
+
+      .screen-hud-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .screen-quran-bubble {
+        background: rgba(255,255,255,0.08);
+        border-radius: 12px;
+        box-shadow:
+          2px 2px 6px rgba(0,0,0,0.30),
+          inset 0 1px 0 rgba(255,255,255,0.08);
+        border: none;
+        padding: 10px 14px;
+        max-width: 250px;
+      }
+
+      .screen-quran-bubble p {
+        font-size: 11px;
+        font-style: italic;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .screen-quran-bubble span {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.40);
+        margin-top: 4px;
+        display: block;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .screen-hud-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* Horizontal Prayer Timeline widget */
+      .prayer-timeline {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 10px;
+        margin-top: 4px;
+      }
+
+      .timeline-slot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .timeline-slot-label {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 2px;
+      }
+
+      .timeline-slot-time {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.70);
+      }
+
+      .timeline-slot.active-slot .timeline-slot-label {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .timeline-slot.active-slot .timeline-slot-time {
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 11px;
+      }
+
+      .family-welcome-bubble {
+        background: rgba(255,255,255,0.08);
+        border-radius: 11px;
+        box-shadow:
+          2px 2px 6px rgba(0,0,0,0.30),
+          inset 0 1px 0 rgba(255,255,255,0.08);
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .family-welcome-title {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--white);
+      }
+
+      .family-welcome-sub {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.40);
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      /* RIGHT SHOWCASE - DAY PRESENCE */
+      .bg-day {
+        background-color: #F5F5F7;
+        color: var(--noir);
+      }
+
+      .screen-quran-bubble-day {
+        background: rgba(0,0,0,0.05);
+        border-radius: 12px;
+        box-shadow:
+          inset 1px 1px 3px rgba(0,0,0,0.06),
+          inset -1px -1px 3px rgba(255,255,255,0.80);
+        border: none;
+        padding: 10px 14px;
+        max-width: 250px;
+      }
+
+      .screen-quran-bubble-day p {
+        font-size: 11px;
+        font-style: italic;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.80);
+      }
+
+      .screen-quran-bubble-day span {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: rgba(0, 0, 0, 0.35);
+        margin-top: 4px;
+        display: block;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .prayer-countdown-tag-day {
+        display: inline-flex;
+        background: rgba(0,0,0,0.05);
+        border-radius: 980px;
+        box-shadow:
+          inset 1px 1px 3px rgba(0,0,0,0.06),
+          inset -1px -1px 3px rgba(255,255,255,0.80);
+        border: none;
+        padding: 6px 14px;
+        font-size: 11px;
+        color: var(--noir);
+        width: fit-content;
+      }
+
+      .location-tag-day {
+        background: rgba(0,0,0,0.05);
+        border-radius: 980px;
+        box-shadow:
+          inset 1px 1px 3px rgba(0,0,0,0.06),
+          inset -1px -1px 3px rgba(255,255,255,0.80);
+        border: none;
+        padding: 6px 16px;
+        font-size: 11px;
+        color: var(--charcoal);
+        width: fit-content;
+      }
+
+      .family-welcome-bubble-day {
+        background: rgba(0,0,0,0.05);
+        border-radius: 11px;
+        box-shadow:
+          inset 1px 1px 3px rgba(0,0,0,0.06),
+          inset -1px -1px 3px rgba(255,255,255,0.80);
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .family-welcome-title-day {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--noir);
+      }
+
+      .family-welcome-sub-day {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: rgba(0, 0, 0, 0.35);
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .prayer-timeline-day {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        padding-top: 10px;
+        margin-top: 4px;
+      }
+
+      .prayer-timeline-day .timeline-slot-label {
+        font-size: 9px;
+        color: rgba(0, 0, 0, 0.35);
+        margin-bottom: 2px;
+      }
+
+      .prayer-timeline-day .timeline-slot-time {
+        font-size: 10px;
+        color: rgba(0, 0, 0, 0.55);
+      }
+
+      .prayer-timeline-day .timeline-slot.active-slot .timeline-slot-label {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .prayer-timeline-day .timeline-slot.active-slot .timeline-slot-time {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      /* Showcase Label styling below device */
+      .showcase-label {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-top: var(--20px);
+        font-weight: 600;
+      }
+
+      /* --- 7. APP + CUSTOMIZE --- */
+      .customize-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--80px);
+        align-items: center;
+      }
+
+      /* Companion Phone Mockup CSS Art */
+      .companion-visual-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--32px);
+      }
+
+      .phone-shell-art {
+        width: 100%;
+        max-width: 250px;
+        aspect-ratio: 9 / 18.2;
+        background: linear-gradient(135deg, #2D2D2D 0%, #151515 100%);
+        border-radius: 42px;
+        padding: 10px;
+        box-shadow: 
+          0 4px 6px -1px rgba(0,0,0,0.05),
+          0 24px 60px -10px rgba(0,0,0,0.22),
+          0 32px 80px -15px rgba(184,151,106,0.12),
+          inset 0 1px 1px rgba(255,255,255,0.25),
+          inset 0 -2px 4px rgba(0,0,0,0.60);
+        position: relative;
+        border: 4px solid #282828;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .phone-shell-art:hover {
+        transform: translateY(-8px) rotate(-1deg) scale(1.03);
+        box-shadow: 
+          0 8px 12px -2px rgba(0,0,0,0.05),
+          0 36px 80px -15px rgba(0,0,0,0.28),
+          0 50px 100px -20px rgba(184,151,106,0.22),
+          inset 0 1.5px 1.5px rgba(255,255,255,0.30);
+      }
+
+      .phone-speaker-bar {
+        width: 60px;
+        height: 6px;
+        background-color: #1A1A1A;
+        border-radius: 20px;
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        box-shadow: inset 0 1px 1.5px rgba(0,0,0,0.8);
+      }
+
+      .phone-inner-screen {
+        width: 100%;
+        height: 100%;
+        background-color: var(--pearl);
+        border-radius: 34px;
+        padding: 34px 16px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--noir);
+        border: 1px solid rgba(0,0,0,0.08);
+        box-shadow: inset 0 1px 4px rgba(0,0,0,0.12);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .phone-app-header {
+        text-align: center;
+        margin-bottom: var(--16px);
+      }
+
+      .phone-app-badge {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .phone-app-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--noir);
+        margin: 2px 0 0 0;
+      }
+
+      .phone-scroller-body {
+        flex-grow: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .phone-ui-row-card {
+        background-color: var(--white);
+        border: 1px solid rgba(184, 151, 106, 0.10);
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .phone-ui-row-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .phone-ui-bullet-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--gold);
+        border-radius: 50%;
+      }
+
+      .phone-ui-label {
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .phone-ui-value {
+        font-size: 10px;
+        color: #999999;
+      }
+
+      .phone-ui-switch {
+        width: 32px;
+        height: 18px;
+        background-color: #E5E5EA; /* Apple standard grey */
+        border-radius: 100px;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(0,0,0,0.02);
+      }
+
+      .phone-ui-switch::after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background-color: var(--white);
+        border-radius: 50%;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        box-shadow: 
+          0 1px 2px rgba(0,0,0,0.08),
+          0 2px 4px rgba(0,0,0,0.06);
+        transition: left 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .phone-ui-switch.checked {
+        background-color: #34C759; /* Apple active toggle green */
+      }
+
+      .phone-ui-switch.checked::after {
+        left: 15px;
+      }
+
+      .phone-navbar-mock {
+        border-top: 1px solid rgba(184, 151, 106, 0.10);
+        padding-top: 8px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .phone-navbar-icon {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #E2DDD5;
+      }
+
+      .phone-navbar-icon.active {
+        background-color: var(--gold);
+      }
+
+      /* Dynamically Customized Device Display */
+      .composite-device-showcase {
+        width: 100%;
+        max-width: 320px;
+        perspective: 1000px;
+      }
+
+      .customizable-frame-outer {
+        width: 100%;
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+          0 4px 8px rgba(0,0,0,0.02),
+          0 24px 64px rgba(0,0,0,0.18),
+          0 40px 100px rgba(184,151,106,0.18),
+          inset 0 3px 6px rgba(255,255,255,0.25),
+          inset 0 -3px 6px rgba(0,0,0,0.35);
+        transition: background 400ms ease, box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .customizable-frame-outer:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow:
+          0 8px 16px rgba(0,0,0,0.04),
+          0 36px 80px rgba(0,0,0,0.24),
+          0 50px 120px rgba(184,151,106,0.26),
+          inset 0 4px 8px rgba(255,255,255,0.30),
+          inset 0 -4px 8px rgba(0,0,0,0.40);
+      }
+
+      /* Default Bezel Finish classes override */
+      .frame-finish-walnut {
+        background: linear-gradient(135deg, #3d2516 0%, #63432b 50%, #2f1b0f 100%);
+      }
+
+      .frame-finish-oak {
+        background: linear-gradient(135deg, #e4cca8 0%, #f6e8cc 50%, #caa985 100%);
+      }
+
+      .frame-finish-travertine {
+        background: linear-gradient(135deg, #d8cbbe 0%, #ebdcd0 50%, #bcaea0 100%);
+      }
+
+      .customizable-screen-inner {
+        background-color: #0D1B2A;
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: inset 0 2px 8px rgba(0,0,0,0.20);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--white);
+        transition: background-color 400ms ease, color 400ms ease, box-shadow 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Selectors details */
+      .finish-selection-actions {
+        display: flex;
+        gap: var(--16px);
+        margin-top: var(--32px);
+      }
+
+      .finish-pill-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .finish-pill-btn.active {
+        background: #1A1A1A;
+        color: #FAF8F5;
+        border: none;
+        border-radius: 980px;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.20);
+      }
+
+      .finish-pill-btn.inactive {
+        background: #FFFFFF;
+        border-radius: 980px;
+        border: 1px solid rgba(184,151,106,0.15);
+        color: var(--charcoal);
+        box-shadow:
+          inset 1px 1px 0 rgba(255,255,255,0.90),
+          3px 3px 10px rgba(184,151,106,0.08);
+      }
+
+      .finish-pill-btn.inactive:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-1px);
+        box-shadow:
+          inset 1px 1px 0 rgba(255,255,255,0.90),
+          4px 4px 12px rgba(184,151,106,0.12);
+      }
+
+      /* --- 8. PRICING --- */
+      .pricing-box {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: var(--48px);
+        background: linear-gradient(135deg, #FFFFFF 0%, #FAFAF8 100%);
+        border-radius: 24px;
+        border: 1px solid rgba(184, 151, 106, 0.12);
+        border-top: 4px solid var(--gold);
+        box-shadow:
+          0 4px 6px -1px rgba(184, 151, 106, 0.02),
+          0 16px 36px -4px rgba(184, 151, 106, 0.08),
+          0 32px 72px -10px rgba(0, 0, 0, 0.03),
+          inset 0 1.5px 0 #FFFFFF;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .pricing-box:hover {
+        box-shadow:
+          0 6px 12px -2px rgba(184, 151, 106, 0.04),
+          0 24px 50px -10px rgba(184, 151, 106, 0.15),
+          0 48px 96px -12px rgba(0, 0, 0, 0.05),
+          inset 0 2px 0 #FFFFFF;
+        transform: translateY(-6px) scale(1.005);
+        border-color: rgba(184, 151, 106, 0.24);
+      }
+
+      .pricing-tier-pill {
+        display: inline-block;
+        margin-bottom: var(--16px);
+        border-radius: 980px;
+        background: rgba(184,151,106,0.08);
+        box-shadow:
+          3px 3px 8px rgba(184,151,106,0.12),
+          -2px -2px 6px rgba(255,255,255,0.85);
+        border: none;
+        padding: 6px 18px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        text-transform: uppercase;
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .pricing-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--noir);
+        margin-bottom: var(--16px);
+      }
+
+      .price-numeric-row {
+        display: flex;
+        align-items: baseline;
+        gap: var(--16px);
+        margin-bottom: var(--24px);
+      }
+
+      .price-actual {
+        font-size: 48px;
+        font-weight: 600;
+        color: var(--noir);
+      }
+
+      .price-crossed {
+        font-size: 20px;
+        text-decoration: line-through;
+        color: #999999;
+      }
+
+      .pricing-description {
+        font-size: 15px;
+        color: var(--charcoal);
+        margin-bottom: var(--32px);
+        line-height: 1.7;
+      }
+
+      .pricing-checklist {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: var(--32px);
+      }
+
+      .premium-checklist-item {
+        display: flex;
+        align-items: center;
+        gap: var(--16px);
+        padding: var(--12px) 0;
+        border-bottom: 1px solid #F8F4EF;
+        font-size: 15px;
+        color: var(--charcoal);
+      }
+
+      .premium-checklist-item:last-child {
+        border-bottom: none;
+      }
+
+      .checklist-icon-check {
+        color: var(--gold);
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      .checklist-gold-accent-italic {
+        color: var(--gold);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .cta-pricing {
+        width: 100%;
+        margin-top: var(--32px);
+      }
+
+      .pricing-subnote {
+        font-size: 12px;
+        color: #999999;
+        text-align: center;
+        margin-top: var(--12px);
+      }
+
+      /* --- 9. FAQ --- */
+      .faq-accordion {
+        width: 100%;
+        max-width: 740px;
+        margin: 0 auto;
+      }
+
+      .accordion-item {
+        background: linear-gradient(135deg, #FFFFFF 0%, #FAF9F6 100%);
+        border-radius: 18px;
+        border: 1px solid rgba(184, 151, 106, 0.05);
+        padding: 24px 28px;
+        margin-bottom: 12px;
+        box-shadow:
+          0 4px 12px -2px rgba(184, 151, 106, 0.04),
+          0 8px 20px -4px rgba(0, 0, 0, 0.015),
+          inset 0 1px 0 #FFFFFF;
+        cursor: pointer;
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .accordion-item:hover {
+        box-shadow:
+          0 8px 18px -4px rgba(184, 151, 106, 0.08),
+          0 12px 28px -6px rgba(0, 0, 0, 0.02),
+          inset 0 1.5px 0 #FFFFFF;
+        transform: translateY(-2px);
+        border-color: rgba(184, 151, 106, 0.12);
+      }
+
+      .accordion-item.active {
+        background: #FFFFFF;
+        box-shadow:
+          inset 0 2px 8px rgba(184, 151, 106, 0.04),
+          0 4px 10px -2px rgba(184, 151, 106, 0.02);
+        border-color: rgba(184, 151, 106, 0.10);
+      }
+
+      .accordion-trigger {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+      }
+
+      .accordion-question-text {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--noir);
+      }
+
+      .chevron-icon {
+        color: var(--gold);
+        transition: transform 250ms ease;
+      }
+
+      .accordion-item.active .chevron-icon {
+        transform: rotate(180deg);
+      }
+
+      .accordion-content-panel {
+        display: none;
+        padding-top: var(--16px);
+        border-top: 1px solid var(--sand);
+        margin-top: var(--16px);
+        animation: accordionFade 250ms ease;
+      }
+
+      @keyframes accordionFade {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .accordion-answer-text {
+        font-size: 15px;
+        color: var(--charcoal);
+        line-height: 1.75;
+      }
+
+      /* --- 10. FOOTER --- */
+      #footer {
+        background-color: var(--noir);
+        padding: var(--80px) var(--48px) var(--48px) var(--48px);
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .footer-top-row {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 40% 20% 20% 20%;
+        gap: var(--32px);
+        margin-bottom: var(--48px);
+      }
+
+      .footer-col-1-brand {
+        display: flex;
+        flex-direction: column;
+        gap: var(--16px);
+      }
+
+      .footer-brand-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-arabic-title {
+        font-family: 'Noto Sans Arabic', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--gold);
+      }
+
+      .footer-english-title {
+        font-size: 13px;
+        color: #999999;
+        letter-spacing: 0.08em;
+      }
+
+      .footer-col-1-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.45);
+        max-width: 280px;
+      }
+
+      .footer-column h4 {
+        color: rgba(255, 255, 255, 0.30);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: var(--20px);
+        font-weight: 500;
+      }
+
+      .footer-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        list-style: none;
+      }
+
+      .footer-links-list a {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .footer-links-list a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom-row {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--24px);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-copyright {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 0.08em;
+      }
+
+      .footer-social-links {
+        display: flex;
+        gap: var(--24px);
+      }
+
+      .footer-social-links a {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      .footer-social-links a:hover {
+        color: var(--gold);
+      }
+
+      /* --- PREMIUM CHECKOUT MODAL DRAWER --- */
+      .checkout-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .checkout-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .checkout-modal-box {
+        background-color: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 28px;
+        padding: 48px;
+        width: 90%;
+        max-width: 480px;
+        box-shadow: 
+          0 10px 30px rgba(0,0,0,0.02),
+          0 40px 100px rgba(0,0,0,0.18),
+          inset 0 1px 0 #FFFFFF;
+        text-align: center;
+        transform: scale(0.92) translateY(20px);
+        transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .checkout-overlay.active .checkout-modal-box {
+        transform: scale(1) translateY(0);
+      }
+
+      .checkout-modal-header {
+        margin-bottom: var(--28px);
+      }
+
+      .checkout-modal-icon {
+        width: 52px;
+        height: 52px;
+        background-color: rgba(184, 151, 106, 0.08);
+        border: 1px solid rgba(184, 151, 106, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--16px) auto;
+        color: #8C6F48;
+      }
+
+      .checkout-modal-box h3 {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: var(--8px);
+        background: linear-gradient(135deg, #111111 0%, #444444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .checkout-modal-subtitle {
+        font-size: 13.5px;
+        color: rgba(26, 26, 26, 0.6);
+        line-height: 1.6;
+      }
+
+      .checkout-modal-body {
+        margin-bottom: var(--32px);
+        padding: var(--24px);
+        background-color: rgba(184, 151, 106, 0.04);
+        border: 1px solid rgba(184, 151, 106, 0.08);
+        border-radius: 18px;
+        text-align: left;
+      }
+
+      .checkout-modal-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(26, 26, 26, 0.82);
+      }
+
+      .checkout-modal-item:last-child {
+        margin-bottom: 0;
+        border-top: 1px solid rgba(26, 26, 26, 0.08);
+        padding-top: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--noir);
+      }
+
+      .checkout-modal-btn {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .checkout-modal-close {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: rgba(26, 26, 26, 0.5);
+        transition: color 200ms ease;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .checkout-modal-close:hover {
+        color: var(--noir);
+      }
+
+      /* --- SCROLL-TRIGGERED ANIMATIONS SYSTEM --- */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+        transition: opacity 680ms cubic-bezier(0.16, 1, 0.3, 1), transform 680ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Stagger delays for grids */
+      .stagger-item-1 { transition-delay: 0ms; }
+      .stagger-item-2 { transition-delay: 80ms; }
+      .stagger-item-3 { transition-delay: 160ms; }
+      .stagger-item-4 { transition-delay: 240ms; }
+      .stagger-item-5 { transition-delay: 320ms; }
+      .stagger-item-6 { transition-delay: 400ms; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-reveal, .anim-visible {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+
+      /* --- MOBILE RESPONSIVE (Breakpoint 768px) --- */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 42px;
+        }
+
+        h2 {
+          font-size: 34px;
+        }
+
+        .section-padding-pearl, .section-padding-sand {
+          padding: 80px 0;
+        }
+
+        .container {
+          padding: 0 var(--24px);
+        }
+
+        /* Nav changes */
+        .nav-links-menu {
+          display: none;
+        }
+
+        .nav-cta-area {
+          display: none;
+        }
+
+        .hamburger-btn {
+          display: flex;
+        }
+
+        .nav-container {
+          padding: 0 var(--20px);
+        }
+
+        /* Col layouts */
+        .grid-2 {
+          grid-template-columns: 1fr;
+          gap: var(--48px);
+        }
+
+        .what-is-layout {
+          grid-template-columns: 1fr;
+          gap: var(--48px);
+        }
+
+        .what-is-left {
+          padding-right: 0;
+        }
+
+        .highlights-card {
+          padding: var(--24px);
+        }
+
+        .how-it-works-grid {
+          grid-template-columns: 1fr;
+          gap: var(--32px);
+        }
+
+        .how-it-works-card {
+          padding: var(--32px) var(--20px);
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: var(--24px);
+        }
+
+        .showcase-flex {
+          flex-direction: column;
+          align-items: center;
+          gap: var(--48px);
+        }
+
+        .customize-layout {
+          grid-template-columns: 1fr;
+          gap: var(--48px);
+        }
+
+        .companion-visual-column {
+          flex-direction: column;
+          gap: var(--48px);
+        }
+
+        /* Buttons stacking */
+        .hero-ctas {
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .hero-ctas .btn {
+          width: 100%;
+          max-width: 320px;
+        }
+
+        .finish-selection-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .pricing-box {
+          padding: var(--32px) var(--24px);
+        }
+
+        .footer-top-row {
+          grid-template-columns: 1fr;
+          gap: var(--48px);
+        }
+
+        .footer-bottom-row {
+          flex-direction: column;
+          gap: var(--16px);
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- 1. NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo-area">
+          <span class="nav-logo-arabic">تربية</span>
+          <span class="nav-logo-divider">|</span>
+          <span class="nav-logo-english">ILHAM INC</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-links-menu">
+          <a href="#hero" class="nav-menu-item">The Product</a>
+          <a href="#what-is" class="nav-menu-item">How It Works</a>
+          <a href="#features" class="nav-menu-item">Features</a>
+          <a href="#customize" class="nav-menu-item">Customize</a>
+          <a href="#faq" class="nav-menu-item">FAQ</a>
+        </div>
+
+        <div class="nav-cta-area">
+          <button class="btn btn-primary btn-nav-preorder" onclick="triggerCheckout()">Pre-Order</button>
+        </div>
+
+        <!-- Mobile Drawer Hamburger button -->
+        <button class="hamburger-btn" onclick="toggleMobileDrawer()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <a href="#hero" class="mobile-drawer-link" onclick="toggleMobileDrawer()">The Product</a>
+      <a href="#what-is" class="mobile-drawer-link" onclick="toggleMobileDrawer()">How It Works</a>
+      <a href="#features" class="mobile-drawer-link" onclick="toggleMobileDrawer()">Features</a>
+      <a href="#customize" class="mobile-drawer-link" onclick="toggleMobileDrawer()">Customize</a>
+      <a href="#faq" class="mobile-drawer-link" onclick="toggleMobileDrawer()">FAQ</a>
+      <button class="btn btn-primary" style="margin-top: auto; padding: 18px;" onclick="toggleMobileDrawer(); triggerCheckout()">Pre-Order Now</button>
+    </div>
+
+    <!-- 2. HERO -->
+    <section id="hero">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="hero-welcome-badge anim-visible stagger-1">
+          البركة في البيت &nbsp;|&nbsp; ILHAM INC. LAUNCH
+        </div>
+        <h1 class="hero-title anim-visible stagger-2">
+          <span class="thin-line">Build Islamic Habits.</span>
+          <span class="bold-line">One at a Time.</span>
+        </h1>
+        <p class="hero-subheading anim-visible stagger-3">
+          Tarbiyah brings your family's spiritual life into the home — beautifully.
+        </p>
+        
+        <div class="hero-ctas anim-visible stagger-4">
+          <button class="btn btn-primary" onclick="triggerCheckout()">RESERVE EARLY SPOT →</button>
+          <a href="#what-is" class="btn btn-secondary">EXPLORE DEVICE SPECS</a>
+        </div>
+
+        <!-- CSS Art Device + Travertine Platform -->
+        <div class="hero-device-wrapper anim-visible stagger-5">
+          <div class="hero-wooden-frame">
+            <div class="hero-inner-screen">
+              <div class="screen-verse-header">
+                <p class="verse-text">"And mention the name of your Lord morning and evening."</p>
+                <span class="verse-citation">Surah Al-Insan 76:25</span>
+              </div>
+              
+              <div class="screen-prayer-body">
+                <div class="prayer-details-left">
+                  <h2 class="prayer-current-label">MAGHRIB</h2>
+                  <div class="prayer-countdown-tag">
+                    ⏱ Commencing in 12 minutes
+                  </div>
+                </div>
+                <div class="prayer-time-right">18:42</div>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Travertine shelf projection -->
+          <div class="travertine-shelf"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. WHAT IS TARBIYAH -->
+    <section id="what-is" class="section-padding-sand scroll-reveal">
+      <div class="container">
+        <div class="what-is-layout">
+          <div class="what-is-left">
+            <span class="section-badge">Purposeful Nature</span>
+            <h2>The anti-screen <br>for intentional families.</h2>
+            <p class="what-is-body" style="margin-top: 16px;">
+              Most domestic displays scream for your attention with bright glowing pixels, pop-up notifications, and blue light glare. They keep you tied to constant distractions instead of the simple domestic presence.
+            </p>
+            <p class="what-is-body">
+              Tarbiyah operates in beautiful reverse. Engineered with a matte, highly textured display reflecting natural light, it acts as quiet kinetic wallpaper. It only displays what brings peace to your hearth: prayer routines, habit loops, and heartfelt reminders. No noise, no notifications, no anxiety.
+            </p>
+            
+            <div class="premium-quote">
+              "Our domestic space is our sanctuary. Tarbiyah honors that boundary, rendering faith and memory like fine typography printed on heavy textured craft paper."
+              <span class="quote-attribution">— ILHAM DESIGN COUNCIL</span>
+            </div>
+          </div>
+
+          <div class="what-is-right">
+            <div class="premium-card highlights-card">
+              <div class="highlights-header">
+                <h3 class="highlights-card-title">Core Concept Highlights</h3>
+                <p class="highlights-card-subtitle">Sustainably sourced, highly functional pieces</p>
+              </div>
+              <div class="highlight-list">
+                <!-- Highlight 1 -->
+                <div class="highlight-item">
+                  <div class="highlight-icon-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="highlight-content-title">E-Ink Prayer Climax Display</h4>
+                    <p class="highlight-content-desc">Beautiful typography automatically transitions in shade representing twilight, dusk, and noon prayer times.</p>
+                  </div>
+                </div>
+                <!-- Highlight 2 -->
+                <div class="highlight-item">
+                  <div class="highlight-icon-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="highlight-content-title">Unified Home Habit Loops</h4>
+                    <p class="highlight-content-desc">A visual tracking framework encouraging positive small daily steps and collective family goals.</p>
+                  </div>
+                </div>
+                <!-- Highlight 3 -->
+                <div class="highlight-item">
+                  <div class="highlight-icon-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="highlight-content-title">Seamless Cloud Sync (No Subscriptions)</h4>
+                    <p class="highlight-content-desc">Manage coordinates and view statistics from the free companion app. Changes push to the home wall instantly.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section class="section-padding-pearl scroll-reveal">
+      <div class="container">
+        <div class="centered-header">
+          <span class="section-badge">The Methodology</span>
+          <h2>Three steps to a quiet hearth.</h2>
+          <p class="highlights-card-subtitle" style="font-size: 17px; color: var(--charcoal); margin-top: 8px;">Simple configuration, timeless presence.</p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <!-- Step 1 -->
+          <div class="premium-card how-it-works-card">
+            <div class="how-it-works-step">01</div>
+            <div class="how-it-works-dot"></div>
+            <h3 class="how-it-works-card-title">Connect with Ease</h3>
+            <p class="how-it-works-card-desc">Unbox Tarbiyah, plug in the premium woven power cable, and connect via the iOS or Android mobile companion app. Set your home coordinates and preferences in moments.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="premium-card how-it-works-card">
+            <div class="how-it-works-step">02</div>
+            <div class="how-it-works-dot"></div>
+            <h3 class="how-it-works-card-title">Symphony of Display</h3>
+            <p class="how-it-works-card-desc">The matte paper-like display automatically renders your local prayer times, chosen spiritual reminders, and daily family metrics. No notification pings or blue light glare.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="premium-card how-it-works-card">
+            <div class="how-it-works-step">03</div>
+            <div class="how-it-works-dot"></div>
+            <h3 class="how-it-works-card-title">Grow Together</h3>
+            <p class="how-it-works-card-desc">Complete daily habits directly on the touch screen, or sync from your phone. Create gentle collective encouragement so building positive habits becomes an embedded home rhythm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FEATURES -->
+    <section id="features" class="section-padding-sand scroll-reveal">
+      <div class="container">
+        <div class="centered-header">
+          <span class="section-badge">Engineered Integrity</span>
+          <h2>Every detail, deliberate.</h2>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-1">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Adaptive Prayer Display</h3>
+            <p class="feature-card-desc">Auto-syncs local latitude coordinates. Features ISNA, Umm al-Qura, and custom mosque offset formulas.</p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-2">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Family Habit Rings</h3>
+            <p class="feature-card-desc">Beautiful circular rings of progress indicating checked actions of morning dhikr and Quran circles.</p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-3">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+                <line x1="15" y1="3" x2="15" y2="21"></line>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="3" y1="15" x2="21" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Household Board</h3>
+            <p class="feature-card-desc">A neat chalkboard alternative to leave gentle notes, Du'a requests, and calendar sync updates.</p>
+          </div>
+          <!-- Feature 4 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-4">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Companion App Hub</h3>
+            <p class="feature-card-desc">Clean interface for iOS and Android. Update announcements, push habits, and sync settings remotely.</p>
+          </div>
+          <!-- Feature 5 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-5">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Artisanal Bezel Materials</h3>
+            <p class="feature-card-desc">Available in solid American Walnut, light Natural Oak, and Pure Travertine stone finishes.</p>
+          </div>
+          <!-- Feature 6 -->
+          <div class="premium-card feature-card scroll-reveal stagger-item-6">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Ambient Chime Feedback</h3>
+            <p class="feature-card-desc">A high-end internal acoustic resonant chamber softly signals prayer climax and habit completions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DEVICE SCREENS SHOWCASE -->
+    <section class="section-padding-pearl scroll-reveal">
+      <div class="container">
+        <div class="centered-header">
+          <span class="section-badge">Real Product UI</span>
+          <h2>Designed for your home. <br>Not your phone.</h2>
+        </div>
+
+        <div class="showcase-flex">
+          <!-- Night Presence Screen Container -->
+          <div class="showcase-screen-container">
+            <div class="device-wooden-bezel">
+              <div class="device-screen-aspect bg-night">
+                <div class="screen-hud-top">
+                  <div class="screen-quran-bubble">
+                    <p>"And mention the name of your Lord morning and evening."</p>
+                    <span>Surah Al-Insan 76:25</span>
+                  </div>
+                  <div class="location-tag-day" style="background-color: rgba(255,255,255,0.08); color: white;">Staten Island, NY</div>
+                </div>
+
+                <div class="screen-hud-bottom">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                      <h3 style="font-size: 2.2rem; color: white; margin-bottom: 4px; font-weight: 300;">MAGHRIB</h3>
+                      <div class="prayer-countdown-tag" style="padding: 4px 10px; font-size: 9px;">⏱ Commencing in 12 minutes</div>
+                    </div>
+                    <div style="font-size: 4rem; color: #C4A87A; font-weight: 200; line-height: 1;">18:42</div>
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                    <div style="font-size: 9px; line-height: 1.4; color: rgba(255,255,255,0.45); max-width: 250px;">
+                      The sky transitions into stillness. A moment for reflection before the day yields to the night.
+                    </div>
+                    <div style="background-color: rgba(255,255,255,0.10); border-radius: 980px; padding: 4px 12px; font-size: 9px; color: white; white-space: nowrap;">
+                      SATURDAY, 24 AUGUST ——
+                    </div>
+                  </div>
+
+                  <div class="prayer-timeline">
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">FAJR</span>
+                      <span class="timeline-slot-time">04:12</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">DHUHR</span>
+                      <span class="timeline-slot-time">12:35</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">ASR</span>
+                      <span class="timeline-slot-time">16:10</span>
+                    </div>
+                    <div class="timeline-slot active-slot">
+                      <span class="timeline-slot-label">MAGHRIB</span>
+                      <span class="timeline-slot-time">18:54</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">ISHA</span>
+                      <span class="timeline-slot-time">20:22</span>
+                    </div>
+                  </div>
+
+                  <div class="family-welcome-bubble">
+                    <div class="family-welcome-title">Welcome Home, Al-Farsi Family</div>
+                    <div class="family-welcome-sub">Peace be upon this house</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-label">Night Presence</div>
+          </div>
+
+          <!-- Day Presence Screen Container -->
+          <div class="showcase-screen-container">
+            <div class="device-wooden-bezel">
+              <div class="device-screen-aspect bg-day">
+                <div class="screen-hud-top">
+                  <div class="screen-quran-bubble-day">
+                    <p>"And mention the name of your Lord morning and evening."</p>
+                    <span>Surah Al-Insan 76:25</span>
+                  </div>
+                  <div class="location-tag-day">Staten Island, NY</div>
+                </div>
+
+                <div class="screen-hud-bottom">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                      <span style="font-size: 9px; color: rgba(0,0,0,0.35); letter-spacing: 0.12em; font-weight: 500; display: block; margin-bottom: 2px;">CURRENT PRESENCE</span>
+                      <h3 style="font-size: 2.2rem; color: var(--noir); margin-bottom: 4px; font-weight: 300;">MAGHRIB</h3>
+                      <div class="prayer-countdown-tag-day" style="padding: 4px 10px; font-size: 9px;">⏱ Commencing in 12 minutes</div>
+                    </div>
+                    <!-- Right: "18:42" #007AFF (blue — only use here to satisfy rule) -->
+                    <div style="font-size: 4rem; color: #007AFF; font-weight: 200; line-height: 1;">18:42</div>
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                    <div style="font-size: 9px; line-height: 1.4; color: rgba(0,0,0,0.35); max-width: 250px;">
+                      The sky transitions into stillness. A moment for reflection before the day yields to the night.
+                    </div>
+                    <div style="background-color: rgba(0,0,0,0.06); border-radius: 980px; padding: 4px 12px; font-size: 9px; color: var(--noir); white-space: nowrap;">
+                      SATURDAY, 24 AUGUST ——
+                    </div>
+                  </div>
+
+                  <div class="prayer-timeline-day">
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">FAJR</span>
+                      <span class="timeline-slot-time">04:12</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">DHUHR</span>
+                      <span class="timeline-slot-time">12:35</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">ASR</span>
+                      <span class="timeline-slot-time">16:10</span>
+                    </div>
+                    <div class="timeline-slot active-slot">
+                      <span class="timeline-slot-label">MAGHRIB</span>
+                      <span class="timeline-slot-time">18:54</span>
+                    </div>
+                    <div class="timeline-slot">
+                      <span class="timeline-slot-label">ISHA</span>
+                      <span class="timeline-slot-time">20:22</span>
+                    </div>
+                  </div>
+
+                  <div class="family-welcome-bubble-day">
+                    <div class="family-welcome-title-day">Welcome Home, Al-Farsi Family</div>
+                    <div class="family-welcome-sub-day">Peace be upon this house</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-label">Day Presence</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. APP + CUSTOMIZE -->
+    <section id="customize" class="section-padding-sand scroll-reveal">
+      <div class="container">
+        <div class="customize-layout">
+          <!-- Dynamic Hardware Configuration Model Visual side -->
+          <div class="companion-visual-column">
+            <!-- iOS Companion App representation -->
+            <div class="phone-shell-art">
+              <div class="phone-speaker-bar"></div>
+              <div class="phone-inner-screen">
+                <div class="phone-app-header">
+                  <span class="phone-app-badge">Ilham Ecosystem</span>
+                  <p class="phone-app-title">Tarbiyah OS</p>
+                </div>
+                <div class="phone-scroller-body">
+                  <div class="phone-ui-row-card">
+                    <div class="phone-ui-row-left">
+                      <span class="phone-ui-bullet-dot"></span>
+                      <span class="phone-ui-label">Prayers Coordinates</span>
+                    </div>
+                    <span class="phone-ui-value">North America</span>
+                  </div>
+                  <div class="phone-ui-row-card">
+                    <div class="phone-ui-row-left">
+                      <span class="phone-ui-bullet-dot"></span>
+                      <span class="phone-ui-label">Dhikr Habit Rings</span>
+                    </div>
+                    <div class="phone-ui-switch checked"></div>
+                  </div>
+                  <div class="phone-ui-row-card">
+                    <div class="phone-ui-row-left">
+                      <span class="phone-ui-bullet-dot"></span>
+                      <span class="phone-ui-label">Quiet Chimes</span>
+                    </div>
+                    <div class="phone-ui-switch"></div>
+                  </div>
+                  <div class="phone-ui-row-card">
+                    <div class="phone-ui-row-left">
+                      <span class="phone-ui-bullet-dot"></span>
+                      <span class="phone-ui-label">Family Blackboard</span>
+                    </div>
+                    <span class="phone-ui-value">Connected</span>
+                  </div>
+                </div>
+                <div class="phone-navbar-mock">
+                  <span class="phone-navbar-icon active"></span>
+                  <span class="phone-navbar-icon"></span>
+                  <span class="phone-navbar-icon"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customized physical hardware preview tool -->
+            <div class="composite-device-showcase">
+              <div id="customize-frame" class="customizable-frame-outer frame-finish-walnut">
+                <div id="customize-screen" class="customizable-screen-inner">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <span id="customize-os-badge" style="font-size: 8px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4);">OS CONFIGURATOR</span>
+                    <span id="finish-badge-text" style="font-size: 8px; background-color: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 980px; text-transform: uppercase;">Walnut</span>
+                  </div>
+                  <div style="text-align: center; padding: 20px 0;">
+                    <h4 id="customize-preview-heading" style="color: white; font-size: 16px; margin-bottom: 4px; font-weight: 500;">Classic American Walnut</h4>
+                    <span style="color: var(--gold); font-size: 11px; letter-spacing: 0.05em; font-weight: 400;">Hand-finished sustainably sourced hardwood</span>
+                  </div>
+                  <div style="display: flex; justify-content: center;">
+                    <span style="font-size: 10px; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase;">TAP FINISHES BELOW →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description and actions selectors side -->
+          <div>
+            <span class="section-badge">Craft Selection</span>
+            <h2>Connect, Create, Sync.</h2>
+            <p class="what-is-body" style="margin-top: 16px;">
+              Manage the Tarbiyah interface beautifully through the seamless iOS and Android environment. Instantly update reminders for the household, coordinate habit completion charts, and configure prayer calculation parameters globally.
+            </p>
+            <p class="what-is-body">
+              Select an architectural border frame that integrates beautifully into your kitchen, living room, or study hearth space:
+            </p>
+
+            <div class="finish-selection-actions">
+              <button id="btn-finish-walnut" class="finish-pill-btn active" onclick="setFinish('walnut')">American Walnut</button>
+              <button id="btn-finish-oak" class="finish-pill-btn inactive" onclick="setFinish('oak')">Natural Oak</button>
+              <button id="btn-finish-travertine" class="finish-pill-btn inactive" onclick="setFinish('travertine')">Pure Travertine</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PRICING -->
+    <section class="section-padding-pearl scroll-reveal">
+      <div class="container">
+        <div class="centered-header">
+          <span class="section-badge">Pre-Order Tiers</span>
+          <h2>Bring Barakah into your residence.</h2>
+          <p class="highlights-card-subtitle" style="font-size: 17px; color: var(--charcoal); margin-top: 8px;">Special early adopter pricing spots available in North America.</p>
+        </div>
+
+        <div class="premium-card pricing-box">
+          <div class="pricing-tier-pill">
+            <span class="section-badge" style="margin-bottom: 0;">Group A Reserve Tiers</span>
+          </div>
+          <h3 class="pricing-title">Tarbiyah Smart Display</h3>
+          
+          <div class="price-numeric-row">
+            <span class="price-actual">$249</span>
+            <span class="price-crossed">$279</span>
+          </div>
+
+          <p class="pricing-description">
+            Secure your hardware delivery slot today from the first pilot run. Deliveries are batched based on booking sequence. Includes premium wall-mount bracket and desktop oak peg stands.
+          </p>
+
+          <hr class="premium-divider" style="margin-bottom: 24px;">
+
+          <div class="pricing-checklist">
+            <div class="premium-checklist-item">
+              <span class="checklist-icon-check">✓</span>
+              <span>Sustainably harvested timber (Walnut/White-Oak)</span>
+            </div>
+            <div class="premium-checklist-item">
+              <span class="checklist-icon-check">✓</span>
+              <span>Interactive matte anti-glare e-ink displays</span>
+            </div>
+            <div class="premium-checklist-item">
+              <span class="checklist-icon-check">✓</span>
+              <span>Zero blue light emission — eye safe and calm</span>
+            </div>
+            <div class="premium-checklist-item">
+              <span class="checklist-icon-check">✓</span>
+              <span>Comes with lifetime free companion app sync</span>
+            </div>
+            <div class="premium-checklist-item">
+              <span class="checklist-icon-check">✦</span>
+              <span class="checklist-gold-accent-italic">Configurable laser back engraving available</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary cta-pricing" onclick="triggerCheckout()">CONFIGURE & SECURE PRE-ORDER</button>
+          <p class="pricing-subnote">No active charge processed. Free group spots reserved today.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section id="faq" class="section-padding-sand scroll-reveal">
+      <div class="container">
+        <div class="centered-header">
+          <span class="section-badge">More Details</span>
+          <h2>Frequently Asked Questions.</h2>
+          <p class="highlights-card-subtitle" style="font-size: 17px; color: var(--charcoal); margin-top: 8px;">Clear answers for intentional parents.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- Q1 -->
+          <div class="accordion-item" onclick="toggleAccordion(1)">
+            <div class="accordion-trigger">
+              <span class="accordion-question-text">How does the display work? Is it an iPad?</span>
+              <svg class="chevron-icon" id="chevron-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content-panel" id="faq-answer-1">
+              <p class="accordion-answer-text">No. Tarbiyah uses a matte anti-glare e-ink panel — similar to a Kindle — that reflects ambient light instead of emitting it. This means no blue light, no glare, and a paper-like appearance that looks beautiful in any lighting condition in the home.</p>
+            </div>
+          </div>
+          <!-- Q2 -->
+          <div class="accordion-item" onclick="toggleAccordion(2)">
+            <div class="accordion-trigger">
+              <span class="accordion-question-text">How are the prayer times calculated?</span>
+              <svg class="chevron-icon" id="chevron-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content-panel" id="faq-answer-2">
+              <p class="accordion-answer-text">Tarbiyah auto-syncs to your home coordinates and supports ISNA (North America), Umm al-Qura, MWL, and custom mosque offset formulas — all configurable from the companion app.</p>
+            </div>
+          </div>
+          <!-- Q3 -->
+          <div class="accordion-item" onclick="toggleAccordion(3)">
+            <div class="accordion-trigger">
+              <span class="accordion-question-text">Do I need a subscription to use the app or device?</span>
+              <svg class="chevron-icon" id="chevron-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content-panel" id="faq-answer-3">
+              <p class="accordion-answer-text">No. Tarbiyah works fully without any subscription. Core features — prayer times, habit tracking, family board — are included for life. Optional premium personalization features may be introduced later but will never lock core functionality.</p>
+            </div>
+          </div>
+          <!-- Q4 -->
+          <div class="accordion-item" onclick="toggleAccordion(4)">
+            <div class="accordion-trigger">
+              <span class="accordion-question-text">Where is the physical device crafted?</span>
+              <svg class="chevron-icon" id="chevron-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content-panel" id="faq-answer-4">
+              <p class="accordion-answer-text">Tarbiyah bezels are crafted from sustainably harvested solid hardwood — American Walnut, light Natural White-Oak, and a Travertine stone edition. Each piece is finished by hand and inspected before shipping.</p>
+            </div>
+          </div>
+          <!-- Q5 -->
+          <div class="accordion-item" onclick="toggleAccordion(5)">
+            <div class="accordion-trigger">
+              <span class="accordion-question-text">What is the return policy and warranty?</span>
+              <svg class="chevron-icon" id="chevron-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content-panel" id="faq-answer-5">
+              <p class="accordion-answer-text">Founding family pre-orders are fully refundable before the shipping date. All devices come with a 12-month manufacturer warranty covering hardware defects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer id="footer">
+      <div class="footer-top-row">
+        <!-- Col 1 -->
+        <div class="footer-col-1-brand">
+          <div class="footer-brand-title">
+            <span class="footer-arabic-title">تربية</span>
+            <span style="color: rgba(255,255,255,0.15)">|</span>
+            <span class="footer-english-title">ILHAM INC</span>
+          </div>
+          <p class="footer-col-1-desc">
+            Thoughtfully crafted digital additions for the contemporary values-led household. Elevating homes one deliberate habit at a time.
+          </p>
+        </div>
+        <!-- Col 2 -->
+        <div class="footer-column">
+          <h4>The Hardware</h4>
+          <ul class="footer-links-list">
+            <li><a href="#customize" onclick="setFinish('walnut')">Classic Walnut</a></li>
+            <li><a href="#customize" onclick="setFinish('oak')">Natural Oak</a></li>
+            <li><a href="#customize" onclick="setFinish('travertine')">Travertine Edition</a></li>
+          </ul>
+        </div>
+        <!-- Col 3 -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links-list">
+            <li><a href="#what-is">How It Works</a></li>
+            <li><a href="#features">Calculations OS</a></li>
+            <li><a href="#faq">Calculations FAQ</a></li>
+          </ul>
+        </div>
+        <!-- Col 4 -->
+        <div class="footer-column">
+          <h4>Social</h4>
+          <ul class="footer-links-list">
+            <li><a href="#footer">Instagram</a></li>
+            <li><a href="#footer">Vimeo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-copyright">
+          © 2026 ILHAM INC. ALL RIGHTS RESERVED.
+        </div>
+        <div class="footer-social-links">
+          <a href="#footer">INSTAGRAM</a>
+          <a href="#footer font-family">VIMEO</a>
+          <a href="#footer">CONTACT SUPPORT</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Premium Embedded Checkout Confirmation Modal Drawer -->
+    <div id="checkout-modal" class="checkout-overlay" onclick="closeCheckoutModal(event)">
+      <div class="checkout-modal-box" onclick="event.stopPropagation()">
+        <div class="checkout-modal-header">
+          <div class="checkout-modal-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Secure Checkout</h3>
+          <p class="checkout-modal-subtitle">Checkout is handled securely by Stripe.</p>
+        </div>
+        <div class="checkout-modal-body">
+          <div class="checkout-modal-item">
+            <span>Tarbiyah Home — Founding Family Edition</span>
+            <span>$249.00</span>
+          </div>
+          <div class="checkout-modal-item">
+            <span>Shipping</span>
+            <span style="color: var(--gold); font-weight: 600;">Complimentary</span>
+          </div>
+          <div class="checkout-modal-item">
+            <span>Total Value</span>
+            <span>$249.00</span>
+          </div>
+        </div>
+        <button class="btn btn-primary checkout-modal-btn" onclick="proceedToStripe()">Proceed to Payment</button>
+        <button class="checkout-modal-close" onclick="closeCheckoutModal(null)">Cancel & Return</button>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      // Sticky Navigation effect on scroll
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile burger drawer menu toggle
+      function toggleMobileDrawer() {
+        const btn = document.querySelector('.hamburger-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        btn.classList.toggle('active');
+        drawer.classList.toggle('active');
+      }
+
+      // Intersection Observer for scroll reveal animations
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const scrollObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(elem => {
+        scrollObserver.observe(elem);
+      });
+
+      // Interactive Customizable device frame configuration selector
+      function setFinish(finish) {
+        const frame = document.getElementById('customize-frame');
+        const badgeText = document.getElementById('finish-badge-text');
+        const previewHeading = document.getElementById('customize-preview-heading');
+        const screenInner = document.getElementById('customize-screen');
+        const osBadge = document.getElementById('customize-os-badge');
+
+        // Reset classes
+        frame.className = "customizable-frame-outer";
+        
+        // Reset active selectors buttons
+        document.getElementById('btn-finish-walnut').className = "finish-pill-btn inactive";
+        document.getElementById('btn-finish-oak').className = "finish-pill-btn inactive";
+        document.getElementById('btn-finish-travertine').className = "finish-pill-btn inactive";
+
+        if (finish === 'walnut') {
+          frame.classList.add('frame-finish-walnut');
+          badgeText.innerText = 'Walnut';
+          badgeText.style.backgroundColor = 'rgba(255,255,255,0.12)';
+          badgeText.style.color = 'white';
+          if (osBadge) osBadge.style.color = 'rgba(255,255,255,0.4)';
+          previewHeading.innerText = 'Classic American Walnut';
+          previewHeading.style.color = "white";
+          screenInner.style.backgroundColor = '#0D1B2A';
+          screenInner.style.color = 'white';
+          document.getElementById('btn-finish-walnut').className = "finish-pill-btn active";
+        } else if (finish === 'oak') {
+          frame.classList.add('frame-finish-oak');
+          badgeText.innerText = 'Oak';
+          badgeText.style.backgroundColor = 'rgba(0,0,0,0.06)';
+          badgeText.style.color = '#1A1A1A';
+          if (osBadge) osBadge.style.color = 'rgba(0,0,0,0.4)';
+          previewHeading.innerText = 'Natural Canadian White Oak';
+          previewHeading.style.color = "#1A1A1A";
+          screenInner.style.backgroundColor = '#FAF8F5';
+          screenInner.style.color = '#1A1A1A';
+          document.getElementById('btn-finish-oak').className = "finish-pill-btn active";
+        } else if (finish === 'travertine') {
+          frame.classList.add('frame-finish-travertine');
+          badgeText.innerText = 'Travertine';
+          badgeText.style.backgroundColor = 'rgba(0,0,0,0.06)';
+          badgeText.style.color = '#1A1A1A';
+          if (osBadge) osBadge.style.color = 'rgba(0,0,0,0.4)';
+          previewHeading.innerText = 'Honed Premium Ivory Travertine';
+          previewHeading.style.color = "#1A1A1A";
+          screenInner.style.backgroundColor = '#F5F2EC';
+          screenInner.style.color = '#1A1A1A';
+          document.getElementById('btn-finish-travertine').className = "finish-pill-btn active";
+        }
+      }
+
+      // Safe Stripe checkout trigger transitions (no alert blocks)
+      function triggerCheckout() {
+        const modal = document.getElementById('checkout-modal');
+        modal.classList.add('active');
+      }
+
+      function closeCheckoutModal(event) {
+        if (event) event.stopPropagation();
+        const modal = document.getElementById('checkout-modal');
+        modal.classList.remove('active');
+      }
+
+      function proceedToStripe() {
+        const btn = document.querySelector('.checkout-modal-btn');
+        btn.innerHTML = 'Connecting to Stripe...';
+        btn.style.opacity = '0.7';
+        btn.style.pointerEvents = 'none';
+        
+        setTimeout(() => {
+          btn.innerHTML = 'Redirecting...';
+          setTimeout(() => {
+            closeCheckoutModal(null);
+            btn.innerHTML = 'Proceed to Payment';
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+          }, 1500);
+        }, 1200);
+      }
+
+      // Accordion FAQ toggle logic
+      function toggleAccordion(index) {
+        const item = document.querySelectorAll('.accordion-item');
+        const panels = document.querySelectorAll('.accordion-content-panel');
+        const chevrons = document.querySelectorAll('.chevron-icon');
+        const currentPanel = document.getElementById(`faq-answer-${index}`);
+        const currentChevron = document.getElementById(`chevron-${index}`);
+        const currentItem = currentPanel.parentElement;
+
+        const isOpen = currentPanel.style.display === 'block';
+
+        // Close all
+        panels.forEach(p => p.style.display = 'none');
+        item.forEach(i => i.classList.remove('active'));
+
+        if (!isOpen) {
+          currentPanel.style.display = 'block';
+          currentItem.classList.add('active');
+        }
+      }
+    </script>
   </body>
 </html>
-

@@ -155,22 +155,67 @@ export default function App() {
             </button>
           </motion.div>
 
-          {/* Product Hero Mockup with warm, clean Japandi style background */}
+          {/* Product Hero Showcase Grid: Wooden Chassis Frame & Lifestyle Render */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.4 }}
-            className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl mt-12 bg-[#E8E0D4]/30 border border-[#E8E0D4]/45 p-3 md:p-4 aspect-16/9 relative group"
+            className="w-full max-w-5xl mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
-            {/* The generated high-fidelity product placement render */}
-            <img
-              src={mockupImg}
-              alt="Tarbiyah smart display on wood console table in minimalist warm sunlit living room"
-              className="w-full h-full object-cover rounded-xl grayscale-10 group-hover:grayscale-0 transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-            {/* Ambient vignette shading on image corners */}
-            <div className="absolute inset-4 rounded-xl shadow-inner pointer-events-none border border-white/10"></div>
+            {/* 1. Classic Hardwood Device Frame with Day Presence Screenshot inside <img> */}
+            <div className="lg:col-span-7 flex flex-col items-center">
+              <div 
+                className="relative w-full aspect-4/3 rounded-3xl p-6 shadow-2xl border-4 border-[#3D2512] bg-gradient-to-br from-[#5C3A21] via-[#4A2F1B] to-[#2B1B0F] transition-all duration-500 hover:scale-[1.01]"
+                style={{
+                  boxShadow: "0 25px 60px -15px rgba(26,26,26,0.35), inset 0 2px 8px rgba(255,255,255,0.3)"
+                }}
+              >
+                {/* Wood texture overlay */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none opacity-20 bg-linear-to-tr from-transparent via-stone-500/10 to-transparent mix-blend-overlay"></div>
+                
+                {/* Ambient Sensor element */}
+                <div className="absolute top-2.5 left-1/2 transform -translate-x-1/2 flex gap-1.5 justify-center items-center pointer-events-none">
+                  <div className="w-1.5 h-1.5 rounded-full bg-stone-900/40"></div>
+                  <div className="w-1 h-1 rounded-full bg-stone-900/20"></div>
+                </div>
+
+                {/* The real high-fidelity screenshot used directly as an <img> tag */}
+                <div className="w-full h-full rounded-xl overflow-hidden shadow-inner bg-[#FAF8F5] relative group">
+                  <img
+                    src="/src/assets/images/day_presence.svg"
+                    alt="Tarbiyah Device Screen - Day Presence Mode"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.005]"
+                  />
+                  {/* Glass reflection overlay */}
+                  <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-white/10 pointer-events-none"></div>
+                </div>
+              </div>
+              <p className="text-xs text-stone-500 mt-3 font-mono font-bold tracking-widest uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8976A]"></span>
+                Tarbiyah Smart Display — Day Presence Mode (Classic Walnut)
+              </p>
+            </div>
+
+            {/* 2. Lifestyle Room Placement */}
+            <div className="lg:col-span-5 h-full flex flex-col justify-between">
+              <div className="rounded-3xl overflow-hidden shadow-xl border border-[#E8E0D4] p-3 bg-white aspect-4/3 relative group">
+                <img
+                  src={mockupImg}
+                  alt="Tarbiyah smart display in a warm, minimalist sunlit living room"
+                  className="w-full h-full object-cover rounded-2xl grayscale-15 group-hover:grayscale-0 transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-3 rounded-2xl shadow-inner pointer-events-none border border-white/10"></div>
+              </div>
+              <div className="text-left mt-4 pl-2 space-y-1">
+                <span className="font-mono text-[10px] text-[#B8976C] font-extrabold tracking-widest uppercase">DOMESTIC SANCTUARY</span>
+                <p className="text-sm font-semibold text-[#1A1A1A]">Harmonious Living Room Placement</p>
+                <p className="text-xs text-stone-550 leading-relaxed font-sans">
+                  Crafted to sit naturally on side consoles or entry credenzas, replacing cold plastic tech with warm organic materials.
+                </p>
+              </div>
+            </div>
+
           </motion.div>
 
         </div>
@@ -262,6 +307,88 @@ export default function App() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* NEW: DUAL PRESENCE STATES SHOWCASE */}
+      <section
+        id="presence-showcase"
+        className="w-full py-20 bg-[#FAF8F5] border-t border-[#E8E0D4]/30 px-6 md:px-12 animate-fade-in"
+      >
+        <div className="max-w-6xl mx-auto space-y-16">
+          
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#B8976C] uppercase">CIRCADIAN RHYTHMS</span>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-[#1A1A1A]">
+              Day &amp; Night Presence.
+            </h2>
+            <p className="text-sm text-stone-600 leading-relaxed font-sans font-medium">
+              Tarbiyah transitions intelligently with the light. Using custom reflection modes, the screen dials dialate and tone shifts, keeping your heart grounded in absolute peace as the day yields to the stars. Just like paper.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-6">
+
+            {/* 1. Day Presence Card inside Oak/White Bezel */}
+            <div className="flex flex-col gap-5 bg-[#E8E0D4]/15 border border-[#E8E0D4]/35 p-6 md:p-8 rounded-2xl relative group">
+              <div className="space-y-1.5 mb-2">
+                <span className="text-[10px] font-mono font-bold text-[#B8976A] tracking-widest uppercase block">TRANSITION ONE</span>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">Day Presence State</h3>
+                <p className="text-xs text-stone-550 leading-relaxed font-sans">
+                  Soft off-white canvas with neumorphic dials and vibrant cobalt indicators that reflect the crisp natural beams of daylight. Zero blue light, completely readable in full sun.
+                </p>
+              </div>
+
+              {/* Oak Frame Wooden Mockup */}
+              <div 
+                className="relative w-full aspect-4/3 rounded-2xl p-5 shadow-xl border-4 border-[#CDBDA3] bg-gradient-to-br from-[#DEC8A9] via-[#AB9578] to-[#DEC8A9] transition-transform duration-500 hover:scale-[1.005]"
+                style={{
+                  boxShadow: "0 20px 40px -10px rgba(40,30,20,0.15), inset 0 2px 6px rgba(255,255,255,0.4)"
+                }}
+              >
+                {/* Screen Wrapper */}
+                <div className="w-full h-full rounded-lg overflow-hidden shadow-inner bg-[#FAF8F5]">
+                  {/* Image 2 direct <img> tag inside wooden frame */}
+                  <img
+                    src="/src/assets/images/day_presence.svg"
+                    alt="Tarbiyah Day Presence Screen Screenshot"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Night Presence Card inside Walnut Bezel */}
+            <div className="flex flex-col gap-5 bg-[#121B2A]/5 border border-stone-200/50 p-6 md:p-8 rounded-2xl relative group">
+              <div className="space-y-1.5 mb-2">
+                <span className="text-[10px] font-mono font-bold text-[#B8976A] tracking-widest uppercase block">TRANSITION TWO</span>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">Night Presence State</h3>
+                <p className="text-xs text-stone-550 leading-relaxed font-sans font-medium">
+                  Deep slate midnight blue theme with glowing warm amber and gold highlights, keeping your household peaceful, sleep-ready, and respectful of your natural circadian rhythms.
+                </p>
+              </div>
+
+              {/* Walnut Frame Wooden Mockup */}
+              <div 
+                className="relative w-full aspect-4/3 rounded-2xl p-5 shadow-xl border-4 border-[#4A321A] bg-gradient-to-br from-[#5A3F24] via-[#36210E] to-[#5A3F24] transition-transform duration-500 hover:scale-[1.005]"
+                style={{
+                  boxShadow: "0 20px 40px -10px rgba(10,10,20,0.25), inset 0 2px 6px rgba(255,255,255,0.3)"
+                }}
+              >
+                {/* Screen Wrapper */}
+                <div className="w-full h-full rounded-lg overflow-hidden shadow-inner bg-[#121B2A]">
+                  {/* Image 1 direct <img> tag inside wooden frame */}
+                  <img
+                    src="/src/assets/images/night_presence.svg"
+                    alt="Tarbiyah Night Presence Screen Screenshot"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
