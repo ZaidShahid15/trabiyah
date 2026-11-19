@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Trabiyah
 
-# Run and deploy your AI Studio app
+A web application project built with React, TypeScript, Vite, and the Google GenAI SDK.
 
-This contains everything you need to run your app locally.
+## Technology Stack
 
-View your app in AI Studio: https://ai.studio/apps/fc5e1af5-6a30-456f-8227-de322f275988
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Google GenAI SDK
+- Express
 
-## Run Locally
+## Requirements
 
-**Prerequisites:**  Node.js
+- Node.js
+- npm
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Clone the repository.
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure the environment variables required by the application. Keep API keys and other secrets in a local environment file and never commit them.
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+The development server is configured to use port 3000.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Build the production frontend |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run the TypeScript type check |
+
+## Environment Configuration
+
+The application uses the Google GenAI SDK. Configure the required API credentials locally according to the source code. Do not expose API keys in commits or client-side code.
+
+## Project Structure
+
+Review the `src` directory for the application code and the root configuration files for build and development settings.
+
+## Notes
+
+This README documents the dependencies and scripts declared in the repository. Add detailed product functionality once it has been verified from the implemented screens and source code.
